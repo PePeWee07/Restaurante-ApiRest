@@ -15,6 +15,7 @@ import com.test.restaurante.entity.promociones;
 
 public interface ServidorServices {
 	
+	//OBTENER
 	List<Proveedores> obtenertodos();
 	List<Ingredientes> obtenerIngresientes();
 	List<promociones> obtenerPromociones();
@@ -26,7 +27,7 @@ public interface ServidorServices {
 	List<Empleados> obtenerEmpleados();
 	List<Orden> obtenerOrdenes();
 	
-	//Guardar 
+	//GUARDAR 
 	promociones crearPromociones(promociones promocion);
 	Proveedores crearProveedores(Proveedores proveedores);
 	Ingredientes crearIngredientes(Ingredientes ingredientes);
@@ -38,15 +39,37 @@ public interface ServidorServices {
 	Valoraciones crearValoraciones(Valoraciones valoraciones);
 	Orden crearOrdenes(Orden orden);
 	
-	//Actualizar
+	//ACTUALIZAR
 	promociones actualizarPromociones(Long id_promocion,promociones promocion);
+	Proveedores actualizarProveedores(Long id_proveedor, Proveedores proveedores);
+	Ingredientes actualizarIngredientes(Ingredientes ingredientes);
+	Cliente actualizarClientes(Long id_cliente, Cliente cliente);
+	Facturas actualizarFacturas(Facturas facturas);	
+	Reservas actualizarReservas(Reservas reservas);
+	Menu actualizarMenus(Long id_menu, Menu menu);
+	Empleados actualizarEmpleados(Long id_empleado, Empleados empleados);
+	Orden actualizarOrdenes(Orden orden);
 	
 	//ELIMINAR
-	public void eliminarPromocion(Long id_promociones);
+	public void eliminarPromociones(Long id_promociones);
+	public void eliminarProveedores(Long id_proveedor);
+	public void eliminarIngredientes(Long id_ingredinte);
+	public void eliminarClientes(Long id_cliente);
+	public void eliminarReservas(Long id_reserva);
+	public void eliminarFacturas(Long id_factura);
+	public void elimnarMenus(Long id_menu);
+	public void elimianrEmpleados(Long id_empleado);
+	public void eliminarOrden(Long id_orden);
+	public void eliminarValoraciones(Long id_valoracion);
 	
-	//Verificaicon si existe ID
-	boolean verificarExistenciaPorId(Long id); 
+	//VERIFICACION DE ID
+	boolean verificarIdPromocion(Long id);
+	boolean verificarIdProveedor(Long id);
+	boolean verificarIdCliente(Long id);
+	boolean verificarIdMenu(Long id);
+	boolean verificarIdEmpleado(Long id);
 	
+
 	
 
 }

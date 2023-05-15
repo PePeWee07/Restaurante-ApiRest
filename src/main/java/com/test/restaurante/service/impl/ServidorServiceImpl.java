@@ -1,6 +1,7 @@
 package com.test.restaurante.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -167,25 +168,128 @@ public class ServidorServiceImpl implements ServidorServices {
 		return ordenesDao.save(orden);
 	}
 
+	
+	
 	// ACTUALIZAR
-
 	@Override
 	public promociones actualizarPromociones(Long id_promocion, promociones promocion) {
 		promocion.setId_promocion(id_promocion);
 		return promocionesDao.save(promocion);
 	}
-
-	// ELIMINAR
-
+	
 	@Override
-	public void eliminarPromocion(Long id_promociones) {
+	public Proveedores actualizarProveedores(Long id_proveedores, Proveedores proveedores) {
+		proveedores.setId_proveedor(id_proveedores);
+		return proveedorDAO.save(proveedores);
+	}
+	
+	@Override
+	public Ingredientes actualizarIngredientes(Ingredientes ingredientes) {		
+		return ingredientesDao.save(ingredientes);
+	}
+	
+	@Override
+	public Cliente actualizarClientes(Long id_cliente, Cliente cliente) {
+		cliente.setId_cliente(id_cliente);
+		return clienteDao.save(cliente);
+	}
+	
+	@Override
+	public Facturas actualizarFacturas(Facturas facturas) {		
+		return facturasDao.save(facturas);
+	}
+	
+	@Override
+	public Reservas actualizarReservas(Reservas reservas) {		
+		return reservasDao.save(reservas);
+	}
+	
+	@Override
+	public Menu actualizarMenus(Long id_menu, Menu menu) {
+		menu.setId_menu(id_menu);
+		return menuDao.save(menu);
+	}
+	
+	@Override
+	public Empleados actualizarEmpleados(Long id_empleado, Empleados empleados) {
+		empleados.setId_empleado(id_empleado);
+		return empleadosDao.save(empleados);
+	}
+	
+	@Override
+	public Orden actualizarOrdenes(Orden orden) {
+		return ordenesDao.save(orden);
+	}
+	
+	
+ 
+	// ELIMINAR
+	@Override
+	public void eliminarPromociones(Long id_promociones) {
 		promocionesDao.deleteById(id_promociones);
 	}
+	@Override
+	public void eliminarProveedores(Long id_proveedor) {
+		proveedorDAO.deleteById(id_proveedor);
+	}
+	@Override
+	public void eliminarIngredientes(Long id_ingrediente) {
+		ingredientesDao.deleteById(id_ingrediente);
+	}
+	
+	
+	@Override
+	public void eliminarClientes(Long id_cliente) {
+		clienteDao.deleteById(id_cliente);
+	}
+	@Override
+	public void eliminarReservas(Long id_reserva) {
+		reservasDao.deleteById(id_reserva);
+	}
+	@Override
+	public void eliminarFacturas(Long id_factura) {
+		facturasDao.deleteById(id_factura);
+	}
+	@Override
+	public void elimnarMenus(Long id_menu) {
+		menuDao.deleteById(id_menu);
+	}
+	@Override
+	public void elimianrEmpleados(Long id_empleado) {
+		empleadosDao.deleteById(id_empleado);
+	}
+	@Override
+	public void eliminarOrden(Long id_orden) {
+		ordenesDao.deleteById(id_orden);
+	}
+	@Override
+	public void eliminarValoraciones(Long id_valoracion) {
+		valoracionesDao.deleteById(id_valoracion);
+	}
+	
+	
 
+	
 	// VERIFICACION POR ID
 	@Override
-	public boolean verificarExistenciaPorId(Long id) {
+	public boolean verificarIdPromocion(Long id) {
 		return promocionesDao.findById(id).isPresent();
+	}
+	@Override
+	public boolean verificarIdProveedor(Long id) {
+		return proveedorDAO.findById(id).isPresent();
+	}
+	@Override
+	public boolean verificarIdCliente(Long id) {
+		return clienteDao.findById(id).isPresent();
+	}
+	@Override
+	public boolean verificarIdMenu(Long id) {
+		return menuDao.findById(id).isPresent();
+	}
+	@Override
+	public boolean verificarIdEmpleado(Long id) {
+		return empleadosDao.findById(id).isPresent();
 	}
 
 }
